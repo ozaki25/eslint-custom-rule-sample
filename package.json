@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^6.1.0",
+    "eslint-config-eslint": "^5.0.1"
+  }
 }
