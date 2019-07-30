@@ -1,17 +1,19 @@
 'use strict';
 
-var RuleTester = require('eslint').RuleTester;
-var tester = new RuleTester();
+const RuleTester = require('eslint').RuleTester;
+const tester = new RuleTester();
 
 tester.run('no-literal-call', require('../rule/no-literal-call'), {
   valid: [
+
     // 変数や関数を呼び出すのは正しい!
     { code: 'foo();' },
     { code: 'obj.foo();' },
     { code: '(function() {})();' },
-    { code: '(() => 0)();', env: { es6: true } },
+    { code: '(() => 0)();', env: { es6: true } }
   ],
   invalid: [
+
     // 関数以外のリテラルを呼び出すのは間違っている!
     { code: 'true();', errors: ['This is not a function.'] },
     { code: 'false();', errors: ['This is not a function.'] },
@@ -24,12 +26,12 @@ tester.run('no-literal-call', require('../rule/no-literal-call'), {
     {
       code: '`hello`();',
       env: { es6: true },
-      errors: ['This is not a function.'],
+      errors: ['This is not a function.']
     },
     {
       code: '(class A {})();',
       env: { es6: true },
-      errors: ["Class constructors cannot be invoked without 'new'."],
-    },
-  ],
+      errors: ['Class constructors cannot be invoked without \'new\'.']
+    }
+  ]
 });

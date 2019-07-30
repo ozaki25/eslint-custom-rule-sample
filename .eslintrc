@@ -3,5 +3,9 @@
   "env": {
     "node": true
   },
-  "rules": {}
+  "rules": {
+    "quotes": [2, "single"],
+    "indent": [2, 2],
+    "no-literal-call": 2
+  }
 }
